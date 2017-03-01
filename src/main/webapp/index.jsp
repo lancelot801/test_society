@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>校园社团管理系统首页</title>
+<title>校园社团首页</title>
 <head>
 		<meta charset="utf-8" />
 		<link rel="shortcut icon" href="img/my_ico.ico">
@@ -480,6 +483,93 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- 注册模态框  -->
+		<div class="modal  fade" id="registerModal">
+		<div class="modal-dialog">
+			<form id="register" action="注册action 使用ajax调用" method="post"
+				enctype="multipart/form-data">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal" type="button">&times;</button>
+						<h4 class="modal-title">
+							<span class="glyphicon glyphicon-leaf"></span>&nbsp;用户注册
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div class="panel panel-default">
+							<div class="panel-body">
 
+								<div class="form-group">
+									<label for="学院"
+										class="col-sm-2 control-label mylabStyle">选择学院</label>
+									<div class="col-sm-10">
+									     <select class="form-control " id="instituteId"
+											name="instituteId">
+											 <c:forEach var="institute" items="${institutes}">
+    										 <option value="${institute.instituteId}">${institute.instituteName}</option>
+ 										 </c:forEach>
+										</select>
+									</div>
+								</div>
+								<br /> <br />
+							
+						<!-- <div style="display:none;"><input id="courseId" name="courseId" /> </div> -->	
+							
+								<div class="form-group">
+									<label for="班级"
+										class="col-sm-2 control-label mylabStyle">选择班级</label>
+									<div class="col-sm-10">
+									     <select class="form-control " id="classId"
+											name="class">
+											 <c:forEach var="class" items="${classes}">
+    										 <option value="${class.classId}">${class.className}</option>
+ 										 </c:forEach>
+										</select>
+									</div>
+								</div>
+								<br /> <br />
+									
+								<div class="form-group">
+									<label for="studentId"
+										class="col-sm-2 control-label mylabStyle">学号</label>
+									<div class="col-sm-10">
+										<input type="text" id="studentId" name="studentId"
+											class="form-control" placeholder="请输入学号" />
+									</div>
+								</div>
+								<br /> <br />
+								
+								<div class="form-group">
+									<label for="password"
+										class="col-sm-2 control-label mylabStyle">密码</label>
+									<div class="col-sm-10">
+										<input type="password" id="password" name="password"
+											class="form-control" placeholder="请输入密码" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="confirmPassword"
+										class="col-sm-2 control-label mylabStyle">确认密码</label>
+									<div class="col-sm-10">
+										<input type="password" id="confirmPassword" name="confirmPassword"
+											class="form-control" placeholder="请再输入密码" />
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="btnClose" class="btn btn-default"
+							data-dismiss="modal">关闭</button>
+						<button type="submit" class="btn btn-primary">提交</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
 </body>
 </html>

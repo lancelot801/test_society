@@ -1,9 +1,8 @@
 $(function() {
-
+	
 	$(document).ready(function() {
 		$("#theTarget").skippr();
 	});
-	
 	
 	$("#theTarget").skippr({
 		transition: 'slide',
@@ -26,4 +25,21 @@ $(function() {
 			refreshPositions: false
 		});
 	});
+	
+	//注册
+	$("#registAccount").click(function() {
+		alert("123");
+		$("#registerModal").modal().draggable({
+			handle: ".modal-header",
+			cursor: 'move',
+			refreshPositions: false
+		});
+	});	
 });
+/*
+function register(){}
+$("#registerModal").modal().draggable({
+	handle: ".modal-header",
+	cursor: 'move',
+	refreshPositions: false
+}); */
